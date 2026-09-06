@@ -1,0 +1,1667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=c2382ee3-6f8c-4389-885f-9063fd5c4616
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=c2382ee3-6f8c-4389-885f-9063fd5c4616">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sami | Web Developer Portfolio</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+            transition: 0.3s;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark {
+            background: #0b1120;
+            color: #f3f4f6;
+        }
+
+        body.dark .navbar {
+            background: #030712;
+        }
+
+        body.dark .about,
+        body.dark .projects {
+            background: #111827;
+        }
+
+        body.dark .skills,
+        body.dark .education {
+            background: #0f172a;
+        }
+
+        body.dark .skill-card,
+        body.dark .project-card,
+        body.dark .education-card {
+            background: #1f2937;
+            color: #f3f4f6;
+        }
+
+        body.dark .about-text,
+        body.dark .project-info p {
+            color: #d1d5db;
+        }
+
+        body.dark .section-title {
+            color: white;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            background: #111827;
+            color: white;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 2px 10px #0002;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ade80;
+        }
+
+        .theme-btn {
+            border: none;
+            background: #374151;
+            color: white;
+
+            padding: 8px 12px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .theme-btn:hover {
+            background: #4ade80;
+            color: #111827;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 60px 8%;
+
+            color: white;
+
+            background:
+                radial-gradient(circle at 80% 20%, #16a34a33, transparent 30%),
+                linear-gradient(135deg, #0f172a, #111827 60%, #052e16);
+
+            overflow: hidden;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        /* LEFT SIDE */
+
+        .hero-content {
+            animation: slideLeft 1s ease;
+        }
+
+        .hero-small {
+            color: #4ade80;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #4ade80;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #e5e7eb;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #d1d5db;
+
+            max-width: 600px;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .main-btn {
+            display: inline-block;
+
+            background: #4ade80;
+            color: #111827;
+
+            padding: 13px 25px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .main-btn:hover {
+            background: #22c55e;
+            transform: translateY(-3px);
+        }
+
+        .outline-btn {
+            display: inline-block;
+
+            border: 2px solid #4ade80;
+            color: #4ade80;
+
+            padding: 11px 24px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .outline-btn:hover {
+            background: #4ade80;
+            color: #111827;
+        }
+
+        /* =========================
+           CODING ANIMATION
+        ========================= */
+
+        .coding-area {
+            height: 430px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+
+            animation: slideRight 1s ease;
+        }
+
+        /* Glow */
+
+        .coding-area::before {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            background: #22c55e;
+
+            border-radius: 50%;
+
+            filter: blur(100px);
+
+            opacity: 0.15;
+
+            animation: glow 3s infinite alternate;
+        }
+
+        /* Laptop */
+
+        .laptop {
+            width: 450px;
+            max-width: 100%;
+
+            position: relative;
+
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .screen {
+            width: 100%;
+            height: 280px;
+
+            background: #020617;
+
+            border: 8px solid #374151;
+
+            border-radius: 15px 15px 5px 5px;
+
+            box-shadow:
+                0 0 30px #22c55e33,
+                0 20px 50px #0008;
+
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .screen-top {
+            height: 30px;
+
+            background: #1f2937;
+
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding-left: 12px;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ef4444;
+        }
+
+        .yellow {
+            background: #facc15;
+        }
+
+        .green {
+            background: #22c55e;
+        }
+
+        .code {
+            padding: 20px;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            color: #d1d5db;
+        }
+
+        .code-line {
+            opacity: 0;
+
+            animation: codeAppear 0.6s forwards;
+        }
+
+        .code-line:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .code-line:nth-child(3) {
+            animation-delay: 1.5s;
+        }
+
+        .code-line:nth-child(4) {
+            animation-delay: 2s;
+        }
+
+        .code-line:nth-child(5) {
+            animation-delay: 2.5s;
+        }
+
+        .code-line:nth-child(6) {
+            animation-delay: 3s;
+        }
+
+        .code-line:nth-child(7) {
+            animation-delay: 3.5s;
+        }
+
+        .tag {
+            color: #f472b6;
+        }
+
+        .attribute {
+            color: #60a5fa;
+        }
+
+        .value {
+            color: #4ade80;
+        }
+
+        .text {
+            color: #facc15;
+        }
+
+        /* Laptop base */
+
+        .laptop-base {
+            width: 115%;
+            height: 18px;
+
+            background: #4b5563;
+
+            margin-left: -7.5%;
+
+            border-radius: 0 0 15px 15px;
+
+            box-shadow: 0 10px 20px #0006;
+        }
+
+        .laptop-bottom {
+            width: 35%;
+            height: 8px;
+
+            background: #6b7280;
+
+            margin: auto;
+
+            border-radius: 0 0 8px 8px;
+        }
+
+        /* Floating code symbols */
+
+        .floating-symbol {
+            position: absolute;
+
+            color: #4ade80;
+
+            font-family: monospace;
+
+            font-size: 35px;
+
+            font-weight: bold;
+
+            opacity: 0.7;
+
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        .symbol-one {
+            top: 20px;
+            left: 20px;
+        }
+
+        .symbol-two {
+            top: 100px;
+            right: 10px;
+
+            animation-delay: 1s;
+        }
+
+        .symbol-three {
+            bottom: 60px;
+            left: 30px;
+
+            animation-delay: 2s;
+        }
+
+        .symbol-four {
+            bottom: 20px;
+            right: 40px;
+
+            animation-delay: 0.5s;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @keyframes glow {
+
+            from {
+                transform: scale(0.9);
+                opacity: 0.1;
+            }
+
+            to {
+                transform: scale(1.1);
+                opacity: 0.2;
+            }
+        }
+
+        @keyframes codeAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 38px;
+
+            margin-bottom: 45px;
+
+            color: #111827;
+        }
+
+        .section-title span {
+            color: #22c55e;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: white;
+        }
+
+        .about-container {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .experience-box {
+            display: inline-block;
+
+            background: #111827;
+            color: white;
+
+            padding: 18px 30px;
+
+            border-radius: 10px;
+        }
+
+        .experience-box strong {
+            color: #4ade80;
+            font-size: 28px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            background: #f5f7fb;
+        }
+
+        .skills-container {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border-radius: 10px;
+
+            box-shadow: 0 4px 15px #0001;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: white;
+        }
+
+        .projects-container {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f8fafc;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 20px #0002;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            margin-bottom: 20px;
+        }
+
+        .project-tech span {
+            background: #dcfce7;
+            color: #166534;
+
+            padding: 5px 10px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+        }
+
+        .project-btn {
+            display: inline-block;
+
+            background: #111827;
+            color: white;
+
+            padding: 10px 18px;
+
+            border-radius: 5px;
+
+            transition: 0.3s;
+        }
+
+        .project-btn:hover {
+            background: #22c55e;
+            color: #111827;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================= */
+
+        .education {
+            background: #f5f7fb;
+        }
+
+        .education-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .education-card {
+            background: white;
+
+            padding: 25px;
+
+            border-left: 5px solid #22c55e;
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+
+            box-shadow: 0 3px 12px #0001;
+        }
+
+        .education-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .education-card .date {
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: #111827;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-text {
+            color: #d1d5db;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-btn {
+            padding: 12px 20px;
+
+            border-radius: 6px;
+
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .linkedin {
+            background: #0077b5;
+        }
+
+        .whatsapp {
+            background: #25d366;
+        }
+
+        .email {
+            background: #ea4335;
+        }
+
+        .cv {
+            background: #4ade80;
+            color: #111827;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #030712;
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        .social-links {
+            margin-top: 10px;
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #4ade80;
+        }
+
+        .social-links a:hover {
+            color: white;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .coding-area {
+                order: 2;
+                height: 380px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 70px 5%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .coding-area {
+                height: 320px;
+            }
+
+            .screen {
+                height: 210px;
+            }
+
+            .code {
+                font-size: 11px;
+                padding: 12px;
+            }
+
+            .laptop-base {
+                height: 14px;
+            }
+
+            .floating-symbol {
+                font-size: 25px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .coding-area {
+                height: 270px;
+            }
+
+            .screen {
+                height: 175px;
+                border-width: 5px;
+            }
+
+            .screen-top {
+                height: 22px;
+            }
+
+            .code {
+                font-size: 8px;
+                line-height: 1.7;
+                padding: 10px;
+            }
+
+            .laptop-base {
+                height: 10px;
+            }
+
+            .laptop-bottom {
+                height: 5px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-btn {
+                width: 220px;
+            }
+
+            .nav-links {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Sami.
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#education">Experience</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+            <li>
+                <button
+                    class="theme-btn"
+                    id="themeButton"
+                    onclick="toggleTheme()">
+                    🌙 Dark
+                </button>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+
+            <!-- LEFT: DESCRIPTION -->
+
+            <div class="hero-content">
+
+                <div class="hero-small">
+                    👋 Welcome to my portfolio
+                </div>
+
+                <h1>
+                    Hi, I'm <span>Sami</span>
+                </h1>
+
+                <h2>
+                    Web Developer
+                </h2>
+
+                <p>
+                    I am a passionate web developer with
+                    12 months of experience creating modern,
+                    responsive and user-friendly websites
+                    using HTML, CSS and JavaScript.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="main-btn">
+                        View My Projects
+                    </a>
+
+                    <a
+                        href="#contact"
+                        class="outline-btn">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT: CODING ANIMATION -->
+
+            <div class="coding-area">
+
+                <div class="floating-symbol symbol-one">
+                    &lt;/&gt;
+                </div>
+
+                <div class="floating-symbol symbol-two">
+                    { }
+                </div>
+
+                <div class="floating-symbol symbol-three">
+                    &lt;/&gt;
+                </div>
+
+                <div class="floating-symbol symbol-four">
+                    JS
+                </div>
+
+
+                <div class="laptop">
+
+                    <div class="screen">
+
+                        <div class="screen-top">
+
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+
+                        </div>
+
+                        <div class="code">
+
+                            <div class="code-line">
+                                <span class="tag">&lt;html&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;
+                                <span class="tag">&lt;h1</span>
+                                <span class="attribute"> class</span>=
+                                <span class="value">"developer"</span>
+                                <span class="tag">&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="text">Hello, I'm Sami</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;
+                                <span class="tag">&lt;/h1&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;
+                                <span class="tag">&lt;script&gt;</span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="value">
+                                    createAmazingWebsite();
+                                </span>
+                            </div>
+
+                            <div class="code-line">
+                                &nbsp;&nbsp;
+                                <span class="tag">&lt;/script&gt;</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="laptop-base"></div>
+
+                    <div class="laptop-bottom"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-container">
+
+            <p class="about-text">
+
+                Hello! My name is Sami. I am a web developer
+                with 12 months of learning and practical
+                experience in web development.
+
+                I enjoy creating clean, responsive and
+                interactive websites. My main technologies
+                are HTML, CSS and JavaScript.
+
+                I am continuously improving my skills and
+                learning new technologies to become a
+                better developer.
+
+            </p>
+
+            <div class="experience-box">
+
+                <strong>12 Months</strong>
+
+                <br>
+
+                Web Development Experience
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section class="skills" id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+
+                <div class="skill-icon">🌐</div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Semantic and structured web pages
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">🎨</div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Responsive and modern website designs
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">⚡</div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Interactive and dynamic websites
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">📱</div>
+
+                <h3>Responsive Design</h3>
+
+                <p>
+                    Mobile, tablet and desktop layouts
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">🔧</div>
+
+                <h3>Git & GitHub</h3>
+
+                <p>
+                    Version control and project hosting
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">💻</div>
+
+                <h3>Web Development</h3>
+
+                <p>
+                    Building frontend websites
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section class="projects" id="projects">
+
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <div class="projects-container">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80"
+                    alt="Coza Store E-commerce Website"
+                >
+
+                <div class="project-info">
+
+                    <h3>
+                        Fashe E-commerce Website
+                    </h3>
+
+                    <p>
+                        A modern e-commerce website designed
+                        for displaying products and providing
+                        users with a clean and simple online
+                        shopping experience.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <!-- Add your deployed URL here -->
+
+                    <a
+                        href="https://timely-vacherin-2c33de.netlify.app/"
+                        target="_blank"
+                        class="project-btn">
+                        🚀 Live Demo
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card">
+
+                <img
+                    class="project-image"
+                    src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80"
+                    alt="Simple Todo Application"
+                >
+
+                <div class="project-info">
+
+                    <h3>
+                        Simple Todo Application
+                    </h3>
+
+                    <p>
+                        A JavaScript todo application where
+                        users can add, edit, complete and
+                        delete their daily tasks.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <!-- Add your deployed URL here -->
+
+                    <a
+                        href="https://gleaming-wisp-a1e789.netlify.app"
+                        target="_blank"
+                        class="project-btn">
+                        🚀 Live Demo
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION / EXPERIENCE
+    ========================== -->
+
+    <section class="education" id="education">
+
+        <h2 class="section-title">
+            Education & <span>Experience</span>
+        </h2>
+
+        <div class="education-container">
+
+            <div class="education-card">
+
+                <h3>
+                    Web Development Learning
+                </h3>
+
+                <p class="date">
+                    12 Months Experience
+                </p>
+
+                <p>
+                    I have spent 12 months learning and
+                    practicing frontend web development.
+                    During this time, I worked with HTML,
+                    CSS and JavaScript and created
+                    practical projects.
+                </p>
+
+            </div>
+
+
+            <div class="education-card">
+
+                <h3>
+                    Frontend Development
+                </h3>
+
+                <p class="date">
+                    HTML • CSS • JavaScript
+                </p>
+
+                <p>
+                    I developed responsive websites and
+                    interactive web applications while
+                    improving my design, coding and
+                    problem-solving skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
+
+        <p class="contact-text">
+            Feel free to contact me for any project
+            or collaboration.
+        </p>
+
+        <div class="contact-buttons">
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                class="contact-btn linkedin">
+
+                💼 LinkedIn
+
+            </a>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                href="https://wa.me/923001234567"
+                target="_blank"
+                class="contact-btn whatsapp">
+
+                💬 WhatsApp
+
+            </a>
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:your-email@example.com"
+                class="contact-btn email">
+
+                ✉️ Email
+
+            </a>
+
+
+            <!-- CV -->
+
+            <a
+                href="Sami-CV.pdf"
+                download
+                class="contact-btn cv">
+
+                📄 Download CV
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Sami. All Rights Reserved.
+        </p>
+
+        <div class="social-links">
+
+            <a
+                href="https://www.linkedin.com/"
+                target="_blank">
+                LinkedIn
+            </a>
+
+            <a
+                href="https://github.com/"
+                target="_blank">
+                GitHub
+            </a>
+
+            <a
+                href="https://wa.me/923001234567"
+                target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function toggleTheme() {
+
+            document.body.classList.toggle("dark");
+
+            const button =
+                document.getElementById("themeButton");
+
+            if (
+                document.body.classList.contains("dark")
+            ) {
+
+                button.innerHTML = "☀️ Light";
+
+            } else {
+
+                button.innerHTML = "🌙 Dark";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="c2382ee3-6f8c-4389-885f-9063fd5c4616" data-app-host="app.netlify.com"></script>
